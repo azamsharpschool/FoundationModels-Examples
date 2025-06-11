@@ -1,0 +1,56 @@
+
+Hello! I’m Mia from the Wallet & Apple Pay team and today, I’m excited to share with you just some of our new features this year that I think you’ll love.
+ We’ll be covering three main topics, enhancements to the merchant and payment experience, improvements on sharing orders with your customers and some great new capabilities coming to the FinanceKit API.
+But first, let’s take a look at the merchant experience.
+ We’ve continually sought more ways to improve the Apple Pay customer experience from streamlining payments to offering a multitude of ways for merchants to engage with customers beyond the purchase.
+ And this year is no different.
+We’re introducing a new and improved design for the Apple Pay button, a new way to view preauthorised payments, and a way for merchants to provide rich information to help your brand stand out.
+ It’s been a decade since we launched Apple Pay and ever since then, users have looked to it for secure, trusted, and reliable payments.
+ Now, I’m sure you’re all familiar with this: Customers love the easy checkout experience it brings, simplifying the process and letting them skip straight to the purchase.
+ We wanted to bring an even better experience to merchants and customers alike, so this year, the Apple Pay button gets dynamic.
+ Let’s have a look at it in action.
+ When using your app, relevant customers may see their default payment method with their card art on display.
+ The new button will help engage customers and bring them into the Apple Pay experience, making checkouts easier and faster than before.
+ For the button to show the best card for the purchase, provide a Merchant Category Code and the supported payment networks as part of your payment request and pass it in to the button’s initialiser.
+ If the default card is unavailable for a transaction, the next available card is shown instead.
+As a refresher, a Merchant Category Code is one of a list of industry-standard, pre-defined codes that represent the various types of commerce a merchant can engage in.
+ It lets customers know in advance whether a payment method is supported for your transaction, helping them choose the right one and avoid pesky failed payments.
+ You can easily set a Merchant Category Code for payment requests both in-app and on the web, so, let’s see how that’s done.
+ Here we have an existing in-app PKPaymentRequest that we’re going to add a Merchant Category Code to.
+ We already indicate what payment networks are supported by the transaction using the supportedNetworks and merchantCapabilities properties.
+ Cards using payment networks not in the supportedNetworks array are marked as unavailable, while merchantCapabilities can be used to specify which cryptographic protocols and card types are supported for the payment.
+To allow these to affect which card is shown on the dynamic Apple Pay button, make sure to use an initialiser that takes a PKPaymentRequest.
+ For Merchant Category Codes, all you need to do is initialise one with the relevant code for your business.
+ and assign it to the merchantCategoryCode property.
+ This one in particular refers to Pet Shops, Pet Food and Supplies.
+ Now, you’re all set.
+ Again, we encourage you to provide a Merchant Category Code whenever you create a payment request along with supportedNetworks and merchantCapabilities whenever it’s relevant, to enable the best experience for you and your customers.
+ Anyway, let’s go back to the button.
+ We prioritise user privacy and security, so just as before, card art and card details are inaccessible to apps that use Apple Pay.
+SwiftUI and UIKit apps will adopt the new button for free, no extra development work required.
+ However, if you did want to use the previous treatment, we’re adding a new view modifier to help with that.
+Here we have an example Implementation of an Apple Pay button within an app.
+ By default, the optimal appearance is chosen based on the users’ circumstances, but if you apply a payWithApplePayButtonDisableCardArt view modifier, the original button will always be shown.
+ The modifier works on view hierarchies as well, so you can apply it to multiple views at once, or have it apply across the entire app.
+ That was our update to the Apple Pay button.
+ With that, we move on to our enhancements to merchant tokens and preauthorised payments.
+We’ve created a unified view for preauthorised payments and, brought you more opportunities for customising your customers’ experience.
+They can view all of their preauthorised payments in one place, and receive notifications about upcoming payments.
+ Finally, you can now provide rich information to customise how you appear to users, and give them an engaging interaction with your brand.
+Let’s see how this works.
+ The new preauthorised payments view can be found in the Wallet app by selecting Payments from the new More menu, or via the card details view.
+From it, you can see a list of every preauthorised payment and the merchants they’re from.
+Now, let’s navigate into a merchant and see what it offers.
+As you can see, the merchant presentation has been greatly improved.
+ Before, you only had the merchant name as determined by the payment network.
+ But now, you can provide an icon, a custom merchant name, a description and image for every payment, and more.
+This will bring a much more engaging experience to your customers, helping them recognise your brand and understand their payments better.
+You can also set your icon via Apple Business Connect, so, let’s take a look at that.
+Apple Business Connect is a service that lets you register information about your business, such as your logo, name and email addresses.
+ This lets you unify your brand by controlling how you appear in Maps, Mail, and more.
+This provides a consistent experience to your customers wherever your brand appears across the system.
+ To get started with Apple Business Connect, simply visit the website, register your business and fill in the details.
+ Every entry is vetted by Apple, so customers have the peace of mind that your brand, is your brand.
+ Next up, oop, looks like I just got a notification.
+ Ah, my sock subscription is about to renew tomorrow, so let’s tap it to view more details.
+ As you can see, it brings me right to the relevant view within preauthorised payments with all the lovely
