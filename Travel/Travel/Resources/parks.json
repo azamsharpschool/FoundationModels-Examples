@@ -1,0 +1,43 @@
+
+[
+  {
+    "name": "Yellowstone National Park",
+    "description": "Established in 1872, Yellowstone is the first national park in the U.S. and is known for its geothermal features like Old Faithful, diverse wildlife, and stunning natural landscapes."
+  },
+  {
+    "name": "Yosemite National Park",
+    "description": "Located in California’s Sierra Nevada mountains, Yosemite is famous for its granite cliffs, waterfalls, giant sequoia groves, and iconic landmarks like El Capitan and Half Dome."
+  },
+  {
+    "name": "Grand Canyon National Park",
+    "description": "Situated in Arizona, the Grand Canyon is a massive geological wonder carved by the Colorado River, known for its breathtaking vistas and layered red rock formations."
+  },
+  {
+    "name": "Zion National Park",
+    "description": "Located in Utah, Zion features dramatic red cliffs, canyons, and scenic hikes like Angels Landing and The Narrows through the Virgin River."
+  },
+  {
+    "name": "Acadia National Park",
+    "description": "Found on Maine’s Mount Desert Island, Acadia offers rugged coastal beauty, granite peaks, and forested hiking trails along the Atlantic Ocean."
+  },
+  {
+    "name": "Glacier National Park",
+    "description": "Located in Montana, Glacier is known for its pristine forests, alpine meadows, rugged mountains, and hundreds of glaciers and lakes."
+  },
+  {
+    "name": "Rocky Mountain National Park",
+    "description": "Set in Colorado, this park features majestic mountain peaks, alpine lakes, and a wide range of wildlife in the heart of the Rockies."
+  },
+  {
+    "name": "Everglades National Park",
+    "description": "Located in southern Florida, Everglades is a vast network of wetlands and mangroves that’s home to manatees, alligators, and panthers."
+  },
+  {
+    "name": "Great Smoky Mountains National Park",
+    "description": "Straddling North Carolina and Tennessee, this park is renowned for its mist-covered mountains, diverse plant and animal life, and historic buildings."
+  },
+  {
+    "name": "Arches National Park",
+    "description": "Located in Utah, Arches is home to more than 2,000 natural sandstone arches, as well as unique rock formations and desert scenery."
+  }
+]
