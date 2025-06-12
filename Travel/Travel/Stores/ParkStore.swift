@@ -7,12 +7,31 @@
 
 import Foundation
 import Observation
+import FoundationModels
 
 @MainActor
 @Observable
 class ParkStore {
     
     var parks: [Park] = []
+    var session: LanguageModelSession
+    var iternary: Itinerary.PartiallyGenerated?
+    
+    init() {
+        self.session = LanguageModelSession(instructions: "You are a helpful travel assistant. Your task is to create personalized and informative travel itineraries based on the user's preferences and inputs. Provide clear, concise, and friendly suggestions.")
+    }
+    
+    func loadIternary(parkName: String) async throws {
+        
+        let prompt = "Create a 3-day travel itinerary for \(parkName), including daily activities, suggested times, and brief descriptions of each stop. Make it engaging and suitable for first-time visitors."
+
+        let stream = session.streamResponse(to: prompt, generating: Itinerary.self)
+        
+        for try await partial in stream {
+            self.iternary = partial
+        }
+        
+    }
     
     func loadParks() {
         
@@ -30,5 +49,4 @@ class ParkStore {
             print("❌ Failed to load parks: \(error)")
         }
     }
-    
 }

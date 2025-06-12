@@ -10,18 +10,58 @@ import SwiftUI
 struct ParkDetailScreen: View {
     
     let park: Park
+    @Environment(ParkStore.self) private var store
+    @State private var generatingItinerary: Bool = false
     
     var body: some View {
-        VStack {
+        ScrollViewReader { proxy in
+        ScrollView {
             Text(park.description)
-            Button("Generate Iternary") {
-                
+                .listRowSeparator(.hidden)
+            Button(generatingItinerary ? "Generating Iternary...": "Generate Iternary") {
+                generatingItinerary = true
+                Task {
+                    do {
+                        try await store.loadIternary(parkName: park.name)
+                        generatingItinerary = false
+                    } catch {
+                        print(error.localizedDescription)
+                        generatingItinerary = false
+                    }
+                }
             }
             .buttonStyle(.bordered)
             .glassEffect()
+            .disabled(generatingItinerary)
             
-            Spacer()
+            if let iternary = store.iternary,
+               let days = iternary.days {
+                
+                VStack {
+                    ForEach(days) { day in
+                        VStack {
+                            Text("Day \(day.day ?? 0)")
+                                .padding(6)
+                                .background(.green)
+                                .foregroundStyle(.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+                            
+                            Text(day.plan ?? "")
+                        }.id(day.id)
+                    }
+                }
+                
+            }
+            
+        }.onChange(of: store.iternary?.days) {
+            if let last = store.iternary?.days?.last {
+                withAnimation {
+                    proxy.scrollTo(last.id)
+                }
+            }
         }
+    }
+        .listStyle(.plain)
         .padding()
         .navigationTitle(park.name)
     }
@@ -30,5 +70,5 @@ struct ParkDetailScreen: View {
 #Preview {
     NavigationStack {
         ParkDetailScreen(park: Park(name: "Rocky Mountains", description: "Set in Colorado, this park features majestic mountain peaks, alpine lakes, and a wide range of wildlife in the heart of the Rockies."))
-    }
+    }.environment(ParkStore())
 }
