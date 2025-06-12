@@ -8,3 +8,7 @@ Welcome to the **Apple Foundation Model Framework Examples** project! This repos
 
 This project uses Apple’s Foundation Models Framework to summarize long transcript text into five concise lines. It leverages on-device machine learning to extract key ideas and present them in a clear, readable format. 
 
+## 🌲🏞️ [National Park Trip Planner](/Travel/)
+**National Park Trip Planner** is a SwiftUI-powered app that helps users plan personalized 3-day itineraries for U.S. national parks. With just a tap, the app generates detailed day-by-day activity suggestions tailored to each park—highlighting scenic spots, hiking trails, and must-see landmarks. Whether you're visiting Yosemite or the Everglades, this app offers an easy, engaging way to explore the best each park has to offer. All recommendations are generated on-device using Apple's Foundation Models framework for privacy and speed.
+
+
