@@ -12,8 +12,8 @@ struct TravelApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                ContentView()
-            }.environment(ParkStore())
+                ParkListScreen()
+            }
         }
     }
 }

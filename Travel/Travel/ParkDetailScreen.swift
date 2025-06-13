@@ -36,5 +36,5 @@ struct ParkDetailScreen: View {
 #Preview {
     NavigationStack {
         ParkDetailScreen(park: Park(name: "Rocky Mountains", description: "Set in Colorado, this park features majestic mountain peaks, alpine lakes, and a wide range of wildlife in the heart of the Rockies."))
-    }.environment(ParkStore())
+    }
 }
