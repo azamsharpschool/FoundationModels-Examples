@@ -19,7 +19,19 @@ final class ItineraryPlanner {
     
     init(park: Park) {
         self.park = park
-        self.session = LanguageModelSession(instructions: "You are a helpful travel assistant. Your task is to create personalized and informative travel itineraries based on the user's preferences and inputs. Provide clear, concise, and friendly suggestions.")
+        
+        self.session = LanguageModelSession {
+            "You are a helpful travel assistant. Your task is to create personalized and informative travel itineraries based on the user's preferences and inputs. Provide clear, concise, and friendly suggestions."
+            
+            """
+            Here is a description for \(park.name) for your reference:
+            """
+            park.description
+            
+            "Here is an example of itinerary:"
+            Itinerary.exampleTripToJapan
+        }
+    
     }
     
     func suggestItinerary() async throws {

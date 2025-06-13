@@ -20,6 +20,11 @@ struct ItineraryView: View {
                     .font(.title)
             }
             
+            if let description = itinerary.description {
+                Text(description)
+                    .opacity(0.5)
+            }
+            
             if let days = itinerary.days {
                 ForEach(days) { day in
                     DayView(day: day)
