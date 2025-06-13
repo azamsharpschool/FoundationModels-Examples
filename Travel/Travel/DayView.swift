@@ -12,7 +12,7 @@ struct DayView: View {
     let day: DayPlan.PartiallyGenerated
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             if let day = day.day {
                 Text("Day \(day)")
                     .padding(6)
@@ -29,9 +29,9 @@ struct DayView: View {
             if let activities = day.activities {
                 ForEach(activities) { activity in
                     ActivityView(activity: activity)
+                        .transition(.blurReplace)
                 }
             }
-           
         }
     }
 }

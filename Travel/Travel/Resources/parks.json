@@ -1,43 +1,62 @@
-
 [
   {
     "name": "Yellowstone National Park",
-    "description": "Established in 1872, Yellowstone is the first national park in the U.S. and is known for its geothermal features like Old Faithful, diverse wildlife, and stunning natural landscapes."
+    "description": "Established in 1872, Yellowstone is the first national park in the U.S. and is known for its geothermal features like Old Faithful, diverse wildlife, and stunning natural landscapes.",
+    "latitude": 44.4280,
+    "longitude": -110.5885
   },
   {
     "name": "Yosemite National Park",
-    "description": "Located in California’s Sierra Nevada mountains, Yosemite is famous for its granite cliffs, waterfalls, giant sequoia groves, and iconic landmarks like El Capitan and Half Dome."
+    "description": "Located in California’s Sierra Nevada mountains, Yosemite is famous for its granite cliffs, waterfalls, giant sequoia groves, and iconic landmarks like El Capitan and Half Dome.",
+    "latitude": 37.8651,
+    "longitude": -119.5383
   },
   {
     "name": "Grand Canyon National Park",
-    "description": "Situated in Arizona, the Grand Canyon is a massive geological wonder carved by the Colorado River, known for its breathtaking vistas and layered red rock formations."
+    "description": "Situated in Arizona, the Grand Canyon is a massive geological wonder carved by the Colorado River, known for its breathtaking vistas and layered red rock formations.",
+    "latitude": 36.1069,
+    "longitude": -112.1129
   },
   {
     "name": "Zion National Park",
-    "description": "Located in Utah, Zion features dramatic red cliffs, canyons, and scenic hikes like Angels Landing and The Narrows through the Virgin River."
+    "description": "Located in Utah, Zion features dramatic red cliffs, canyons, and scenic hikes like Angels Landing and The Narrows through the Virgin River.",
+    "latitude": 37.2982,
+    "longitude": -113.0263
   },
   {
     "name": "Acadia National Park",
-    "description": "Found on Maine’s Mount Desert Island, Acadia offers rugged coastal beauty, granite peaks, and forested hiking trails along the Atlantic Ocean."
+    "description": "Found on Maine’s Mount Desert Island, Acadia offers rugged coastal beauty, granite peaks, and forested hiking trails along the Atlantic Ocean.",
+    "latitude": 44.3386,
+    "longitude": -68.2733
   },
   {
     "name": "Glacier National Park",
-    "description": "Located in Montana, Glacier is known for its pristine forests, alpine meadows, rugged mountains, and hundreds of glaciers and lakes."
+    "description": "Located in Montana, Glacier is known for its pristine forests, alpine meadows, rugged mountains, and hundreds of glaciers and lakes.",
+    "latitude": 48.7596,
+    "longitude": -113.7870
   },
   {
     "name": "Rocky Mountain National Park",
-    "description": "Set in Colorado, this park features majestic mountain peaks, alpine lakes, and a wide range of wildlife in the heart of the Rockies."
+    "description": "Set in Colorado, this park features majestic mountain peaks, alpine lakes, and a wide range of wildlife in the heart of the Rockies.",
+    "latitude": 40.3428,
+    "longitude": -105.6836
   },
   {
     "name": "Everglades National Park",
-    "description": "Located in southern Florida, Everglades is a vast network of wetlands and mangroves that’s home to manatees, alligators, and panthers."
+    "description": "Located in southern Florida, Everglades is a vast network of wetlands and mangroves that’s home to manatees, alligators, and panthers.",
+    "latitude": 25.2866,
+    "longitude": -80.8987
   },
   {
     "name": "Great Smoky Mountains National Park",
-    "description": "Straddling North Carolina and Tennessee, this park is renowned for its mist-covered mountains, diverse plant and animal life, and historic buildings."
+    "description": "Straddling North Carolina and Tennessee, this park is renowned for its mist-covered mountains, diverse plant and animal life, and historic buildings.",
+    "latitude": 35.6532,
+    "longitude": -83.5070
   },
   {
     "name": "Arches National Park",
-    "description": "Located in Utah, Arches is home to more than 2,000 natural sandstone arches, as well as unique rock formations and desert scenery."
+    "description": "Located in Utah, Arches is home to more than 2,000 natural sandstone arches, as well as unique rock formations and desert scenery.",
+    "latitude": 38.7331,
+    "longitude": -109.5925
   }
 ]

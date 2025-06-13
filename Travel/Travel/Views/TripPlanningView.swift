@@ -42,5 +42,13 @@ struct TripPlanningView: View {
 }
 
 #Preview {
-    TripPlanningView(park: Park(name: "Rocky Mountain National Park", description: "Set in Colorado, this park features majestic mountain peaks, alpine lakes, and a wide range of wildlife in the heart of the Rockies."))
+    TripPlanningView(
+        park: Park(
+            name: "Rocky Mountain National Park",
+            description: "Set in Colorado, this park features majestic mountain peaks, alpine lakes, and a wide range of wildlife in the heart of the Rockies.",
+            latitude: 40.3428,
+            longitude: -105.6836
+        )
+    )
+
 }

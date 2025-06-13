@@ -11,10 +11,12 @@ struct Park: Codable, Identifiable {
     var id = UUID()
     let name: String
     let description: String
+    let latitude: Double
+    let longitude: Double
 
     private enum CodingKeys: String, CodingKey {
-        case name
-        case description
+        case name, description, latitude, longitude
+        
     }
 }
 
