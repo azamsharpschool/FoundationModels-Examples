@@ -7,29 +7,29 @@
 
 import SwiftUI
 
-struct IternaryView: View {
+struct ItineraryView: View {
     
-    let iternary: Itinerary.PartiallyGenerated
+    let itinerary: Itinerary.PartiallyGenerated
     
     var body: some View {
         
         VStack(alignment: .leading) {
             
-            if let title = iternary.title {
+            if let title = itinerary.title {
                 Text(title)
                     .font(.title)
             }
             
-            if let days = iternary.days {
+            if let days = itinerary.days {
                 ForEach(days) { day in
                     DayView(day: day)
-                }
+                }.transition(.blurReplace)
             }
         }.padding()
-            .animation(.easeIn, value: iternary)
+            .animation(.easeInOut, value: itinerary)
     }
 }
 
 #Preview {
-    IternaryView(iternary: Itinerary.preview)
+    ItineraryView(itinerary: Itinerary.preview)
 }

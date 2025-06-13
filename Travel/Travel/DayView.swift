@@ -19,6 +19,7 @@ struct DayView: View {
                     .background(.green)
                     .foregroundStyle(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             
             if let plan = day.plan {
