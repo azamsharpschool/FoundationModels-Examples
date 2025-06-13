@@ -9,7 +9,10 @@ import Foundation
 import FoundationModels
 
 @Generable
-struct Itinerary {
+struct Itinerary: Equatable {
+    
+    @Guide(description: "A descriptive title for the itinerary, such as the destination or theme of the trip.")
+    let title: String
     
     @Guide(description: "Detailed plan for each day of the itinerary, including the day number and a description of planned activities.", .count(3))
     var days: [DayPlan]
@@ -25,4 +28,11 @@ struct DayPlan: Equatable {
 
     @Guide(description: "A detailed description of the planned activities, locations, and experiences for this day.")
     let plan: String
+}
+
+extension Itinerary {
+    static var preview: Itinerary.PartiallyGenerated {
+        
+        return try! Itinerary.PartiallyGenerated(GeneratedContent(Itinerary(title: "Exciting trip to Rocky Mountains", days: [DayPlan(day: 1, plan: "Day 1 Plan")], summary: "ss")))
+    }
 }

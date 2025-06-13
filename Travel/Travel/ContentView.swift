@@ -5,18 +5,9 @@
 //  Created by Mohammad Azam on 6/11/25.
 //
 
-import Playgrounds
+
 import SwiftUI
 import FoundationModels
-
-#Playground {
-    
-    let session = LanguageModelSession()
-    let prompt = "Generate a list of national parks in United States."  
-    
-    let response = try await session.respond(to: prompt, generating: SearchSuggestions.self)
-    
-}
 
 struct ContentView: View {
     

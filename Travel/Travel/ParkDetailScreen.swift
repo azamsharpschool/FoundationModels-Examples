@@ -6,62 +6,28 @@
 //
 
 import SwiftUI
+import FoundationModels
 
 struct ParkDetailScreen: View {
     
     let park: Park
-    @Environment(ParkStore.self) private var store
-    @State private var generatingItinerary: Bool = false
+    private let model = SystemLanguageModel.default
     
     var body: some View {
-        ScrollViewReader { proxy in
+        
         ScrollView {
             Text(park.description)
-                .listRowSeparator(.hidden)
-            Button(generatingItinerary ? "Generating Iternary...": "Generate Iternary") {
-                generatingItinerary = true
-                Task {
-                    do {
-                        try await store.loadIternary(parkName: park.name)
-                        generatingItinerary = false
-                    } catch {
-                        print(error.localizedDescription)
-                        generatingItinerary = false
-                    }
-                }
+            switch model.availability {
+            case .available:
+                TripPlanningView(park: park)
+            case .unavailable(.appleIntelligenceNotEnabled):
+                Text("Travel app is not available because Apple Intelligence has not been turned on.")
+            case .unavailable(.modelNotReady):
+                Text("Travel app is not ready yet.")
+            default:
+                Text(park.description)
             }
-            .buttonStyle(.bordered)
-            .glassEffect()
-            .disabled(generatingItinerary)
-            
-            if let iternary = store.iternary,
-               let days = iternary.days {
-                
-                VStack {
-                    ForEach(days) { day in
-                        VStack {
-                            Text("Day \(day.day ?? 0)")
-                                .padding(6)
-                                .background(.green)
-                                .foregroundStyle(.white)
-                                .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
-                            
-                            Text(day.plan ?? "")
-                        }.id(day.id)
-                    }
-                }
-                
-            }
-            
-        }.onChange(of: store.iternary?.days) {
-            if let last = store.iternary?.days?.last {
-                withAnimation {
-                    proxy.scrollTo(last.id)
-                }
-            }
-        }
     }
-        .listStyle(.plain)
         .padding()
         .navigationTitle(park.name)
     }
