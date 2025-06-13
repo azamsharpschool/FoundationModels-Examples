@@ -14,6 +14,8 @@ This project uses Apple’s Foundation Models Framework to summarize long transc
 ## 🌲🏞️ [National Park Trip Planner](/Travel/)
 **National Park Trip Planner** is a SwiftUI-powered app that helps users plan personalized 3-day itineraries for U.S. national parks. With just a tap, the app generates detailed day-by-day activity suggestions tailored to each park—highlighting scenic spots, hiking trails, and must-see landmarks. Whether you're visiting Yosemite or the Everglades, this app offers an easy, engaging way to explore the best each park has to offer. All recommendations are generated on-device using Apple's Foundation Models framework for privacy and speed.
 
+[View the demo on Twitter/X](https://x.com/azamsharp/status/1933369965823811778)
+
 > These examples will be part of my upcoming course on Apple Foundation Models Framework. Course will be available on AzamSharp School (https://azamsharp.school).
 
 
