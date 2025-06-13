@@ -29,7 +29,7 @@ final class ItineraryPlanner {
             park.description
             
             "Here is an example of itinerary:"
-            Itinerary.exampleTripToJapan
+            Itinerary.exampleTripToNationalPark
         }
     
     }

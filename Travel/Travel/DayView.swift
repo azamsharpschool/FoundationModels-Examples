@@ -25,6 +25,12 @@ struct DayView: View {
             if let plan = day.plan {
                 Text(plan)
             }
+            
+            if let activities = day.activities {
+                ForEach(activities) { activity in
+                    ActivityView(activity: activity)
+                }
+            }
            
         }
     }
