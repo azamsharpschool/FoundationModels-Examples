@@ -11,7 +11,6 @@ import Observation
 
 struct DadJokesTool: Tool {
     
-    // this is a test!
     var name: String = "dadJokesTool"
     var description: String = "Generate classic dad jokes that are punny, clean, and perfect for lightening the mood. Great for family-friendly humor on any topic."
     
@@ -58,12 +57,16 @@ class JokeMaker {
                 """
                 You are a professional joke writer. Your task is to generate short, clever, and family-friendly jokes on request. Keep the tone light and playful.
                 """
+            
+                """
+                Use the dadJokesTool to create funny and family friendly dad jokes.
+                """
         }
     }
     
     func suggestJoke() async throws {
         
-        let prompt = "Tell me a short, clever, and family-friendly joke about programmers."
+        let prompt = "Tell me a short, clever, and family-friendly joke "
         
         let stream = session.streamResponse(to: prompt, generating: Joke.self)
         
