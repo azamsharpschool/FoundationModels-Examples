@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FoundationModels
 
 struct TripPlanningView: View {
     
@@ -30,7 +31,8 @@ struct TripPlanningView: View {
             }
             .buttonStyle(.bordered)
             .glassEffect()
-            .disabled(generatingItinerary)
+            .disabled(itineraryPlanner?.session.isResponding ?? true)
+            
             
             if let iternary = itineraryPlanner?.itinerary {
                 ItineraryView(itinerary: iternary)

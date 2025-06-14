@@ -19,9 +19,14 @@ final class ItineraryPlanner {
     
     init(park: Park) {
         self.park = park
-        
-        self.session = LanguageModelSession {
+        let pointOfInterestsTool = FindNearbyPointsOfInterestTool(park: park)
+        self.session = LanguageModelSession(tools: [pointOfInterestsTool]) {
             "You are a helpful travel assistant. Your task is to create personalized and informative travel itineraries based on the user's preferences and inputs. Provide clear, concise, and friendly suggestions."
+            
+            """
+            Use the findNearbyPointsOfInterest tool to find various 
+            businesses and activities near \(park.name). 
+            """
             
             """
             Here is a description for \(park.name) for your reference:

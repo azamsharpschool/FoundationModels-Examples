@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit
 
 struct Park: Codable, Identifiable {
     var id = UUID()
@@ -13,10 +14,13 @@ struct Park: Codable, Identifiable {
     let description: String
     let latitude: Double
     let longitude: Double
+    
+    var location: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
 
     private enum CodingKeys: String, CodingKey {
         case name, description, latitude, longitude
-        
     }
 }
 
