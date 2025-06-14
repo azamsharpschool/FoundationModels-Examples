@@ -18,7 +18,7 @@ This project uses Apple’s Foundation Models Framework to summarize long transc
 
 [View the demo on Twitter/X](https://x.com/azamsharp/status/1933386643291189535)
 
-😂 [Dad Jokes Generator – Powered by Apple Foundation Models](/Jokes/)
+😂 [Dad Jokes Generator](/Jokes/)
 
 Jokes is a SwiftUI app that uses Apple’s Foundation Models Framework to generate and display classic dad jokes. It showcases how to integrate Tool-based AI functionality using LanguageModelSession and @Generable types. The app includes a custom DadJokesTool that returns random puns, demonstrating how to build and register tools that respond to natural language prompts. Ideal for learning how to use tools in the Foundation Models ecosystem for interactive, AI-powered features.
 
