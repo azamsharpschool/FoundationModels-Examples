@@ -18,6 +18,7 @@ struct Recipe: Equatable, Identifiable {
     
     @Guide(description: "A short description of the recipe, including flavor, main ingredients, or how it’s typically served.")
     let description: String
+    
 }
 
 extension Recipe: InstructionsRepresentable {

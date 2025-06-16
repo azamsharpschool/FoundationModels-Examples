@@ -6,15 +6,17 @@
 //
 
 import SwiftUI
-import SwiftData 
+import SwiftData
 
 @main
 struct YummyApp: App {
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack {
                 ContentView()
-            }.modelContainer(for: RecipeModel.self)
+            }
+            .modelContainer(for: RecipeModel.self)
         }
     }
 }

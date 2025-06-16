@@ -13,8 +13,8 @@ struct RecipeListScreen: View {
     
     let ingredients: Set<Ingredient>
     @State private var recipeRecommender: RecipeRecommender?
-    
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.httpClient) private var httpClient
     
     private func saveRecipeAsFavorite(recipeModel: RecipeModel) {
         
@@ -40,7 +40,7 @@ struct RecipeListScreen: View {
             }
         }.task {
             do {
-                recipeRecommender = RecipeRecommender()
+                recipeRecommender = RecipeRecommender(httpClient: httpClient)
                 // get suggestions
                 try await recipeRecommender?.suggestRecipes(ingredients: ingredients)
             } catch {
