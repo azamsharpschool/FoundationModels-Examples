@@ -32,7 +32,7 @@ This app uses Apple’s new Foundation Models framework to understand your ingre
 [View the demo on Twitter/X](https://x.com/azamsharp/status/1934113611162718653)
 
 
+Want to learn more check out my course [Getting Started with the Foundation Models Framework](https://azamsharp.teachable.com/p/getting-started-with-the-foundation-models-framework). 
 
-> These examples will be part of my upcoming course on Apple Foundation Models Framework. Course will be available on AzamSharp School (https://azamsharp.school).
 
 
