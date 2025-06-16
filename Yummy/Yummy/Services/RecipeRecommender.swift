@@ -36,10 +36,7 @@ class RecipeRecommender {
         for try await partialResponse in stream {
             recipes = partialResponse
         }
-        
-        //let response = try await session.respond(to: prompt, generating: [Recipe].self)
-        //print(response.content)
-        //recipes = response.content
+      
     }
     
 }

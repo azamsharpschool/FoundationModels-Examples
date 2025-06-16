@@ -23,10 +23,12 @@ struct Recipe: Equatable, Identifiable {
 extension Recipe: InstructionsRepresentable {
     
     static var sample: Recipe {
+        
         .init(
             name: "Garlic Tomato Chicken with Spinach",
             description: "A savory dish featuring tender chicken cooked in a rich garlic-tomato sauce, served with wilted spinach for a wholesome and flavorful meal."
         )
     }
 }
+
 
