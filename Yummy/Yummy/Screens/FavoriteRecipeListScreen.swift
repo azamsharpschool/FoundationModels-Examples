@@ -15,11 +15,14 @@ struct FavoriteRecipeListScreen: View {
     var body: some View {
         
         if recipeModels.isEmpty {
-            Text("No favorite recipes found.")
+            ContentUnavailableView("No Favorite Recipes",
+                                       systemImage: "heart.slash",
+                                       description: Text("You haven't added any recipes to your favorites yet."))
         } else {
             List(recipeModels) { recipeModel in
                 VStack(alignment: .leading) {
                     Text(recipeModel.name)
+                        .font(.headline)
                     Text(recipeModel.desc)
                 }
             }.navigationTitle("Favorite Recipes")
