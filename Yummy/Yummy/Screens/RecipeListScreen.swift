@@ -7,22 +7,22 @@
 
 import SwiftUI
 import FoundationModels
+import SwiftData
 
 struct RecipeListScreen: View {
     
     let ingredients: Set<Ingredient>
     @State private var recipeRecommender: RecipeRecommender?
     
-    private func saveRecipeAsFavorite(recipe: Recipe.PartiallyGenerated) {
+    @Environment(\.modelContext) private var modelContext
+    
+    private func saveRecipeAsFavorite(recipeModel: RecipeModel) {
         
-        guard let name = recipe.name,
-              let description = recipe.description else { return }
+        print(recipeModel.name)
+        print(recipeModel.desc)
         
-        
-        let recipeModel = RecipeModel(name: name, desc: description)
-        
-        // save the recipe model 
-        
+        // save the recipe Model
+        modelContext.insert(recipeModel)
     }
     
     var body: some View {
@@ -55,7 +55,7 @@ struct RecipeListScreen: View {
 struct RecipeListView: View {
     
     let recipes: [Recipe.PartiallyGenerated]
-    let onSaveAsFavorite: (Recipe.PartiallyGenerated) -> Void
+    let onSaveAsFavorite: (RecipeModel) -> Void
     
     var body: some View {
         List(recipes) { recipe in
@@ -67,7 +67,7 @@ struct RecipeListView: View {
 struct RecipeCellView: View {
     
     let recipe: Recipe.PartiallyGenerated
-    let onSaveAsFavorite: (Recipe.PartiallyGenerated) -> Void
+    let onSaveAsFavorite: (RecipeModel) -> Void
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -81,8 +81,15 @@ struct RecipeCellView: View {
                 Text(description)
             }
             
-            Button("Save as favorite") {
-                onSaveAsFavorite(recipe)
+            Button("Save to favorite") {
+                
+                guard let name = recipe.name,
+                      let description = recipe.description else { return }
+                
+                // create a SwiftData model
+                let recipeModel = RecipeModel(name: name, desc: description)
+                
+                onSaveAsFavorite(recipeModel)
             }
             .buttonStyle(.bordered)
         }
@@ -92,4 +99,5 @@ struct RecipeCellView: View {
 
 #Preview {
     RecipeListScreen(ingredients: Ingredient.preview)
+        .modelContainer(previewContainer)
 }
