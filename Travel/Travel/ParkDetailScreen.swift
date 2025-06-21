@@ -16,7 +16,6 @@ struct ParkDetailScreen: View {
     var body: some View {
         
         ScrollView {
-            Text(park.description)
             switch model.availability {
             case .available:
                 TripPlanningView(park: park)
@@ -24,6 +23,8 @@ struct ParkDetailScreen: View {
                 Text("Travel app is not available because Apple Intelligence has not been turned on.")
             case .unavailable(.modelNotReady):
                 Text("Travel app is not ready yet.")
+            case .unavailable(.deviceNotEligible):
+                Text("Your device is not eligible.")
             default:
                 Text(park.description)
             }
