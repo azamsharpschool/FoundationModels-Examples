@@ -12,7 +12,7 @@ import SwiftData
 struct RecipeListScreen: View {
     
     let ingredients: Set<Ingredient>
-    @State private var recipeRecommender: RecipeRecommender?
+    @Environment(RecipeRecommender.self) private var recipeRecommender
     @Environment(\.modelContext) private var modelContext
     @Environment(\.httpClient) private var httpClient
     
@@ -27,28 +27,30 @@ struct RecipeListScreen: View {
     
     var body: some View {
         
+        let recipes = recipeRecommender.recipes
+        
         Group {
-            if let recommender = recipeRecommender {
-                if !recommender.recipes.isEmpty {
-                    RecipeListView(recipes: recommender.recipes, onSaveAsFavorite: saveRecipeAsFavorite)
-                        .transition(.blurReplace)
-                } else {
-                    ProgressView("Preparing delicious recipes...")
+            
+            if !recipes.isEmpty {
+                List(recipes) { recipe in
+                    NavigationLink {
+                        RecipeDetailScreen(recipe: recipe)
+                    } label: {
+                        RecipeCellView(recipe: recipe, onSaveAsFavorite: saveRecipeAsFavorite)
+                    }
                 }
             } else {
-                ProgressView("Preparing delicious recipes...")
+                ProgressView("Preparing delicious recipes")
             }
+            
         }.task {
             do {
-                recipeRecommender = RecipeRecommender(httpClient: httpClient)
-                // get suggestions
-                try await recipeRecommender?.suggestRecipes(ingredients: ingredients)
+                
+                try await recipeRecommender.suggestRecipes(ingredients: ingredients)
             } catch {
                 print(error)
             }
         }
-        
-        
     }
 }
 
@@ -98,6 +100,7 @@ struct RecipeCellView: View {
 
 
 #Preview {
-    RecipeListScreen(ingredients: Ingredient.preview)
-        .modelContainer(previewContainer)
+    NavigationStack {
+        RecipeListScreen(ingredients: Ingredient.preview)
+    } .modelContainer(previewContainer)
 }

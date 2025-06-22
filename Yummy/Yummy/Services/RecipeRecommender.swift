@@ -14,8 +14,13 @@ import FoundationModels
 class RecipeRecommender {
     
     var recipes: [Recipe.PartiallyGenerated] = []
+    var recipeSteps: [RecipeStep.PartiallyGenerated] = []
     let session: LanguageModelSession
     let httpClient: HTTPClient
+    
+    var isResponding: Bool {
+        session.isResponding
+    }
     
     init(httpClient: HTTPClient) {
         self.httpClient = httpClient
@@ -36,15 +41,30 @@ class RecipeRecommender {
                 """
                 If rice is not one of the ingredients, you should generate the recipes yourself.
                 """
-                
+        }
+        
+        
+        // warm the session
+        session.prewarm()
+    }
+    
+    func createRecipeSteps(recipeName: String) async throws {
+        
+        recipeSteps = []
+        
+        let prompt = "List all steps to create recipe: \(recipeName)"
+        
+        let stream = session.streamResponse(to: prompt, generating: [RecipeStep].self)
+        for try await partialResponse in stream {
+            recipeSteps = partialResponse
         }
     }
     
     func suggestRecipes(ingredients: Set<Ingredient>) async throws {
         
-        let prompt = "Suggest 3-5 recipes based on the following ingredient(s): \n \(ingredients.map(\.name).joined(separator: ", "))"
+        recipes = []
         
-        print(prompt)
+        let prompt = "Suggest 3-5 recipes based on the following ingredient(s): \n \(ingredients.map(\.name).joined(separator: ", "))"
         
         let stream = session.streamResponse(to: prompt, generating: [Recipe].self)
         for try await partialResponse in stream {

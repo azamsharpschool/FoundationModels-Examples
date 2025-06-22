@@ -18,7 +18,13 @@ struct Recipe: Equatable, Identifiable {
     
     @Guide(description: "A short description of the recipe, including flavor, main ingredients, or how it’s typically served.")
     let description: String
-    
+}
+
+@Generable
+struct RecipeStep: Identifiable {
+    let id = UUID()
+    let order: Int
+    let instruction: String 
 }
 
 extension Recipe: InstructionsRepresentable {
