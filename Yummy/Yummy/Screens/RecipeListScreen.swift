@@ -54,18 +54,6 @@ struct RecipeListScreen: View {
     }
 }
 
-struct RecipeListView: View {
-    
-    let recipes: [Recipe.PartiallyGenerated]
-    let onSaveAsFavorite: (RecipeModel) -> Void
-    
-    var body: some View {
-        List(recipes) { recipe in
-            RecipeCellView(recipe: recipe, onSaveAsFavorite: onSaveAsFavorite)
-        }
-    }
-}
-
 struct RecipeCellView: View {
     
     let recipe: Recipe.PartiallyGenerated
