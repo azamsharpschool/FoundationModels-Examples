@@ -9,9 +9,7 @@ import Foundation
 import FoundationModels
 
 @Generable
-struct Recipe: Equatable, Identifiable {
-    
-    let id = UUID()
+struct Recipe: Equatable {
     
     @Guide(description: "The title of the recipe, such as 'Spicy Garlic Chicken' or 'Creamy Mushroom Pasta'.")
     let name: String
@@ -21,11 +19,15 @@ struct Recipe: Equatable, Identifiable {
 }
 
 @Generable
-struct RecipeStep: Identifiable {
-    let id = UUID()
+struct RecipeStep {
+    
+    @Guide(description: "The step number in the recipe, starting from 1 and increasing sequentially.")
     let order: Int
-    let instruction: String 
+    
+    @Guide(description: "A clear instruction for this step, describing what needs to be done.")
+    let instruction: String
 }
+
 
 extension Recipe: InstructionsRepresentable {
     

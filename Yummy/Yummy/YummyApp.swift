@@ -11,7 +11,7 @@ import SwiftData
 @main
 struct YummyApp: App {
     
-    @State private var recipeRecommender = RecipeRecommender(httpClient: HTTPClient())
+    @State private var recipeRecommender = RecipeRecommender(httpClient: .development)
     
     var body: some Scene {
         WindowGroup {

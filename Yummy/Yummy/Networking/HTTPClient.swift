@@ -16,3 +16,7 @@ struct HTTPClient {
     }
     
 }
+
+extension HTTPClient {
+    static let development = HTTPClient()
+}
