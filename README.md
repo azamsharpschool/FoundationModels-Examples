@@ -32,6 +32,23 @@ This app uses Apple’s new Foundation Models framework to understand your ingre
 [View the demo on Twitter/X](https://x.com/azamsharp/status/1934113611162718653)
 
 
+## [Swift Exams](/SwiftExams/) 
+
+Swift Exams is an iOS app that leverages Apple’s Foundation Models framework to generate customized Swift programming quizzes based on the user’s skill level. Designed with SwiftUI and running entirely on-device, this app provides a secure and responsive learning experience for Swift developers.
+
+📱 Features
+🧠 AI-Generated Questions: Uses Apple’s Foundation Models to generate multiple-choice questions tailored to different skill levels.
+
+🎯 Skill Levels: Choose from beginner to advanced levels to match your learning goals.
+
+📝 Interactive UI: Clean, SwiftUI-powered interface to select answers and view instant feedback.
+
+🏆 Score Summary: View your results with an intuitive score overlay.
+
+🔐 On-Device Intelligence: All AI processing happens on-device using Apple’s LanguageModelSession.
+
+[View Demo](https://x.com/azamsharp/status/1936985443637035388)
+
 Want to learn more check out my course [Getting Started with the Foundation Models Framework](https://azamsharp.teachable.com/p/getting-started-with-the-foundation-models-framework). 
 
 
